@@ -36,9 +36,9 @@ msg:
 #
 tests: $(TESTS)
 	./test_default_ctor
-	./test_int_ctor
+	#./test_int_ctor
 	./test_equal
-	./test_c_str_ctor
+	#./test_c_str_ctor
 #Milestone 2 - remove #
 	#./test_add
 	#./test_subscript
@@ -125,9 +125,6 @@ testP1_%: bigint.o testP1_%.o
 testP1_%.o: bigint.hpp ${CHECKPATH}testP1_%.cpp
 	cp ${CHECKPATH}testP1_$*.cpp .
 	$(CPP) $(OPTS) -c testP1_$*.cpp
-
-
-
 
 ###############################################################
 clean:

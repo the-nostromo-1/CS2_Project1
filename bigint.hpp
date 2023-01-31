@@ -9,19 +9,19 @@ David J Tinley
 
 #include <iostream>
 
-const int capacity = 200;
+const int CAPACITY = 200;
 
 class bigint
 {
 public:
     bigint();    // default constructor
     bigint(int); // constructor initializing int values in bigint array from user input
-    bigint(const char[]);
-    bool operator==(const bigint); // equality operator overload
+    bigint(const char bg_array[]);
+    bool operator==(const bigint &rhs); // equality operator overload
     void debugPrint(std::ostream &) const;
-    friend std::ostream &operator<<(std::ostream &out, const bigint &bi); // bi = "bigint", insertion operator overload
+    friend std::ostream &operator<<(std::ostream &out, const bigint &rhs); // insertion operator overload
 private:
-    int bi_arrs[capacity];
+    int big_int_array[CAPACITY];
 };
 
 #endif
