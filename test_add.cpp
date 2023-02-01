@@ -78,6 +78,21 @@ int main()
     assert(right == 5);
     assert(result == 14);
   }
+  {
+    // setup
+    bigint left("95454452345246435634565625524524352352");
+    bigint right("5524543542524657254352435234526564536");
+    bigint result;
+
+    // test
+    result = left + right;
+
+    // verify
+    assert(left == "95454452345246435634565625524524352352");
+    assert(right == "5524543542524657254352435234526564536");
+    assert(result == 14);
+  }
+
   std::cout << "Done with testing addition." << std::endl;
   return 0;
 }

@@ -36,9 +36,9 @@ msg:
 #
 tests: $(TESTS)
 	./test_default_ctor
-	#./test_int_ctor
+	./test_int_ctor
 	./test_equal
-	#./test_c_str_ctor
+	./test_c_str_ctor
 #Milestone 2 - remove #
 	#./test_add
 	#./test_subscript

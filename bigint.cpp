@@ -30,9 +30,9 @@ bigint::bigint(const char bg_array[]) : bigint() // : bigint() calls default con
     {
         ++length;
     }
-    int a = length;
+    int looping_tracker = length;
     int number;
-    for (int j = 0; j < a; ++j)
+    for (int j = 0; j < looping_tracker; ++j)
     {
         number = int(bg_array[length - 1] - int('0'));
         big_int_array[j] = number;
@@ -90,4 +90,12 @@ std::ostream &operator<<(std::ostream &out, const bigint &rhs) // insertion oper
         out << std::endl;
     }
     return out;
+}
+
+void bigint::debugPrint(std::ostream &out) const
+{
+    for (int i = CAPACITY - 1; i > 0; --i)
+    {
+        out << big_int_array[i] << " | ";
+    }
 }
