@@ -1,6 +1,6 @@
 //
-//
-//
+// multiply.cpp
+// David J Tinley
 //
 
 #include <iostream> 

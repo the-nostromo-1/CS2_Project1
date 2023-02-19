@@ -9,12 +9,12 @@
 
 #include <iostream>
 
-const int CAPACITY = 400;
+const int CAPACITY = 500;
 
 class bigint {
     public:
         // Constructors
-        bigint();    // default constructor
+        bigint(); // default constructor
         bigint(int x); // constructor initializing int values in bigint array from user input
         bigint(const char bg_array[]);
 
@@ -22,7 +22,6 @@ class bigint {
         bigint timesDigit(int x) const;
         bigint times10(int x) const;
         void debugPrint(std::ostream &) const;
-        int arrayLength() const; // for debugging
 
         // Operator overloads
         bigint operator+(bigint const &rhs) const;
@@ -30,8 +29,7 @@ class bigint {
         int operator[](int x) const;
         bool operator==(const bigint &rhs) const; // equality operator overload
 
-        // Friend Functions + istream & ostream overloads
-        friend bool inRange(const int low, const int high, int numParam);
+        // Friend Functions (istream & ostream overloads)
         friend std::ostream &operator<<(std::ostream &out, const bigint &rhs);
         friend std::istream &operator>>(std::istream &in, bigint &rhs);
         

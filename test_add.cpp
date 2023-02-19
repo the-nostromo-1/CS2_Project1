@@ -12,9 +12,7 @@
 int main()
 {
     {
-
     // VERY INCOMPLETE set of tests.
-
     //------------------------------------------------------
     // Setup fixture
     bigint left(0);
@@ -45,6 +43,7 @@ int main()
     assert(right == 0);
     assert(result == 1);
     }
+
     {
     //------------------------------------------------------
     // Setup fixture
@@ -61,8 +60,6 @@ int main()
     assert(result == 2);
     }
 
-    //assert(1 == 2); // WRONG. This will fail, of course.
-                  // You need to add more test cases here. Remove this assert.
     {
     // Add test cases as needed.
     // setup
@@ -78,20 +75,36 @@ int main()
     assert(right == 5);
     assert(result == 14);
     }
-    //{
-    // // setup
-    // bigint left("95454452345246435634565625524524352352");
-    // bigint right("5524543542524657254352435234526564536");
-    // bigint result;
 
-    // // test
-    // result = left + right;
+    {
+    // setup
+    bigint left(200);
+    bigint right(500);
+    bigint result;
 
-    // // verify
-    // assert(left == "95454452345246435634565625524524352352");
-    // assert(right == "5524543542524657254352435234526564536");
-    // assert(result == 14);
-    // }
+    // test
+    result = left + right;
+
+    // verify
+    assert(left == 200);
+    assert(right == 500);
+    assert(result == 700);
+    }
+
+    {
+    // setup
+    bigint left("2000");
+    bigint right("5000");
+    bigint result;
+
+    // test
+    result = left + right;
+
+    // verify
+    assert(left == "2000");
+    assert(right == "5000");
+    assert(result == 7000);
+    }
 
     std::cout << "Done with testing addition." << std::endl;
     return 0;

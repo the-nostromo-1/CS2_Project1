@@ -20,10 +20,10 @@ int main() {
     }
     
     //Until end of file
-       //Read two bigints
-       //Print them out
-       //Add them together
-       //Print out results
+    //Read two bigints
+    //Print them out
+    //Add them together
+    //Print out results
     in.close();
     return 0;
 }

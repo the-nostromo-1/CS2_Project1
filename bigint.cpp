@@ -7,15 +7,6 @@
 #include "bigint.hpp"
 
 //
-// Friend Functions
-//
-bool inRange(const int low, const int high, int numParam) {
-    // Keeps arrayLength from not counting the length of an array that
-    // has a 0 in it that is not at the end. ex: 1230456
-    return (numParam >= low && numParam <= high);
-}
-
-//
 // Class constructors
 //
 bigint::bigint() { // default constructor
@@ -49,18 +40,9 @@ bigint::bigint(const char bg_array[]) : bigint() {
 //
 void bigint::debugPrint(std::ostream &out) const
 {
-    for (int i = CAPACITY - 1; i > 0; --i)
-    {
+    for (int i = CAPACITY - 1; i > 0; --i) {
         out << big_int_array[i] << " | ";
     }
-}
-
-int bigint::arrayLength() const {
-    int resultLength = 0;
-    while (big_int_array[resultLength] != 0 || inRange(1, 9, big_int_array[resultLength + 1])) {
-        ++resultLength;
-    }
-    return resultLength;
 }
 
 bigint bigint::timesDigit(int x) const {
@@ -143,7 +125,7 @@ std::istream &operator>>(std::istream &in, bigint &rhs) {
 }
 
 bigint bigint::operator+(const bigint &rhs) const {
-    bigint result(0);
+    bigint result;
     int carryOver = 0;
     for (int i = 0; i < CAPACITY; i++) {
         int sum = big_int_array[i] + rhs.big_int_array[i] + carryOver;
@@ -166,10 +148,8 @@ bigint bigint::operator*(const bigint &rhs) const {
 }
 
 bool bigint::operator==(const bigint &rhs) const {
-    for (int i = 0; i < CAPACITY; ++i)
-    {
-        if (big_int_array[i] != rhs.big_int_array[i])
-        {
+    for (int i = 0; i < CAPACITY; ++i) {
+        if (big_int_array[i] != rhs.big_int_array[i]) {
             return false;
         }
     }
