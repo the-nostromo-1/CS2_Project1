@@ -1,55 +1,102 @@
-/*
-bigint cpp file
-Created: 01/25/2023
-David J Tinley
-*/
+//
+// bigint.cpp file
+// Created: 01/25/2023
+// David J Tinley
+//
 
 #include "bigint.hpp"
 
+//
+// Friend Functions
+//
+bool inRange(const int low, const int high, int numParam) {
+    // Keeps arrayLength from not counting the length of an array that
+    // has a 0 in it that is not at the end. ex: 1230456
+    return (numParam >= low && numParam <= high);
+}
+
+//
+// Class constructors
+//
 bigint::bigint() { // default constructor
     for (int i = 0; i < CAPACITY; ++i) { // filling bigint array with 0's
         big_int_array[i] = 0;
     }
 }
 
-bigint::bigint(int x) : bigint() { // constructor initializing int with user choice
+bigint::bigint(int x) : bigint() {
     for (int i = 0; i < CAPACITY; ++i) {
         big_int_array[i] = x % 10;
         x /= 10;
     }
 }
 
-bigint::bigint(const char bg_array[]) : bigint() { // : bigint() calls default constructor before newly defined constructor
+bigint::bigint(const char bg_array[]) : bigint() {
     int length = 0;
     while (bg_array[length] != '\0') { // '\0' = null terminating character
         ++length;
     }
     int looping_tracker = length;
-    int number;
     for (int j = 0; j < looping_tracker; ++j) {
-        number = int(bg_array[length - 1] - int('0'));
+        int number = int(bg_array[length - 1] - int('0'));
         big_int_array[j] = number;
         --length;
     }
-    // seperate the array of characters ("1234") into individual digits
-    // use ascii codes to convert the individual char's to int's
-    // ascii digit number codes:
-    // 0 = 48, 1 = 49, 2 = 50, 3 = 51, 4 = 52, 5 = 53, 6 = 54, 7 = 55, 8 = 56, 9 = 57
 }
 
-bool bigint::operator==(const bigint &rhs) {
-    for (int i = 0; i < CAPACITY; ++i) {
-        if (big_int_array[i] != rhs.big_int_array[i]) {
-            return false;
-        }
+//
+// Bigint method definitions
+//
+void bigint::debugPrint(std::ostream &out) const
+{
+    for (int i = CAPACITY - 1; i > 0; --i)
+    {
+        out << big_int_array[i] << " | ";
     }
-    return true;
 }
 
-std::ostream &operator<<(std::ostream &out, const bigint &rhs) { // insertion operator overload
+int bigint::arrayLength() const {
+    int resultLength = 0;
+    while (big_int_array[resultLength] != 0 || inRange(1, 9, big_int_array[resultLength + 1])) {
+        ++resultLength;
+    }
+    return resultLength;
+}
+
+bigint bigint::timesDigit(int x) const {
+    bigint result(0);
+    int remainder = 0;
+    for (int i = 0; i < CAPACITY; ++i) {
+        remainder = big_int_array[i] * x + remainder;
+        result.big_int_array[i] = remainder % 10;
+        remainder /= 10;
+    }
+    return result;
+}
+
+bigint bigint::times10(int x) const {
+    bigint result;
+    for (int i = CAPACITY - x - 1; i >= 0; --i) {
+        result.big_int_array[i + x] = big_int_array[i];
+    }
+    return result;
+}
+
+//
+// Operator overload definitions
+//
+int bigint::operator[](int x) const {
+    if (x >= CAPACITY || x < 0) {
+        std::cout << "Out of bounds" << std::endl;
+        exit (0);
+    }
+    return big_int_array[x];
+}
+
+std::ostream &operator<<(std::ostream &out, const bigint &rhs) {
     int j = CAPACITY;
     while (rhs.big_int_array[j - 1] == 0) {
-        --j;
+        --j; // eliminating leading zero's
     }
     int n_capacity = j - 80;
     if (j <= 0) {
@@ -74,8 +121,57 @@ std::ostream &operator<<(std::ostream &out, const bigint &rhs) { // insertion op
     return out;
 }
 
-void bigint::debugPrint(std::ostream &out) const {
-    for (int i = CAPACITY - 1; i > 0; --i) {
-        out << big_int_array[i] << " | ";
+std::istream &operator>>(std::istream &in, bigint &rhs) {
+    char number = '.';
+    char numberArray[CAPACITY];
+    int i = 0;
+    do {
+        in >> number;
+        if (number != ';' && number >= '0' && number <= '9') {
+            numberArray[i] = number;
+            ++i;
+        }
+    } while (number != ';' && in); 
+    int newCapacity = i;
+    for (int j = 0; j < newCapacity; ++j) {
+        int characterInt = numberArray[i - 1] - int('0');
+        rhs.big_int_array[j] = characterInt;
+        --i;
     }
+
+    return in;
+}
+
+bigint bigint::operator+(const bigint &rhs) const {
+    bigint result(0);
+    int carryOver = 0;
+    for (int i = 0; i < CAPACITY; i++) {
+        int sum = big_int_array[i] + rhs.big_int_array[i] + carryOver;
+        result.big_int_array[i] = sum % 10;
+        carryOver = sum / 10;
+    }
+    return result;
+}
+
+bigint bigint::operator*(const bigint &rhs) const {
+    bigint temp;
+    bigint product;
+
+    for (int i = 0; i < CAPACITY - 1; ++i) {
+        temp = this->timesDigit(rhs.big_int_array[i]);
+        product = product + temp.times10(i);
+
+    }
+    return product;
+}
+
+bool bigint::operator==(const bigint &rhs) const {
+    for (int i = 0; i < CAPACITY; ++i)
+    {
+        if (big_int_array[i] != rhs.big_int_array[i])
+        {
+            return false;
+        }
+    }
+    return true;
 }

@@ -16,10 +16,10 @@ int main () {
         bigint bi(3);
 
         // Test 
-        bi = bi.times10(0);
+        bi = bi.times10(1);
 
         // Verify
-        assert(bi == 77);  //Wrong. Will FAIL, fix and add tests cases
+        assert(bi == 30);
     }
     
     //Add test cases as needed.

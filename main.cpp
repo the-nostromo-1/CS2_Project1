@@ -9,6 +9,7 @@
 #include <fstream>
 #include <cstdlib>
 #include "bigint.hpp"
+#include "bigint.cpp"
 
 int main() {
     std::ifstream in;            // Define input stream
