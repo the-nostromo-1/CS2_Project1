@@ -16,9 +16,7 @@ int main () {
         // Test 
         assert(bi == 0);
         // Verify
-        // std::cout << "0 == ";
-        // std::cout << bi;
-        // std::cout << std::endl;
+        std::cout << "0 == " << bi << std::endl;
     }
     
     {
@@ -28,10 +26,7 @@ int main () {
         // Test
         assert(bi1 == bi2);
         // Verify
-        // std::cout << bi1;
-        // std::cout << " == ";
-        // std::cout << bi2;
-        // std::cout << std::endl;
+        std::cout << bi1 << " == " << bi2 << std::endl;
     }
 
     {
@@ -41,10 +36,7 @@ int main () {
         // Test
         assert(!(bi1 == bi2));
         // Verify
-        // std::cout << bi1;
-        // std::cout << " != ";
-        // std::cout << bi2;
-        // std::cout << std::endl;
+        std::cout << bi1 << " == " << bi2 << std::endl;
     }
 
     {
@@ -54,10 +46,7 @@ int main () {
         // Test
         assert(!(bi1 == bi2));
         // Verify
-        // std::cout << bi1;
-        // std::cout << " != ";
-        // std::cout << bi2;
-        // std::cout << std::endl;
+        std::cout << bi1 << " == " << bi2 << std::endl;
     }
     {
         // Setup
@@ -66,12 +55,10 @@ int main () {
         // Test
         assert(!(bi1 == bi2));
         // Verify
-        // std::cout << bi1;
-        // std::cout << " != ";
-        // std::cout << bi2;
-        // std::cout << std::endl;
+        std::cout << bi1 << " == " << bi2 << std::endl;
     }
 
     std::cout << "Done testing ==." << std::endl;
+    std::cout << std::endl;
     return 0;
 }

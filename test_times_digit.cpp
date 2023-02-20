@@ -32,6 +32,7 @@ int main () {
 
         // Verify
         assert(bi == 100);
+        std::cout << "bi(100) timesDigit(1) == 100" << std::endl;
     }
 
     {
@@ -43,6 +44,7 @@ int main () {
 
         // Verify
         assert(bi == 4995);
+        std::cout << "bi(999) timesDigit(5) == 4995" << std::endl;
     }
 
     {
@@ -54,6 +56,7 @@ int main () {
 
         // Verify
         assert(bi == 59994);
+        std::cout << "bi(6) timesDigit(9999) == 59994)" << std::endl;
     }
 
     {
@@ -65,6 +68,7 @@ int main () {
 
         // Verify
         assert(bi == 246913578);
+        std::cout << "bi(123456789) timesDigit(2) == 246913578" << std::endl;
     }
 
     // This test fails. Error says
@@ -90,6 +94,7 @@ int main () {
 
         // Verify
         assert(bi == 1800);
+        std::cout << "bi(900) timesDigit(2) == 1800" << std::endl;
     }
 
     {
@@ -101,8 +106,10 @@ int main () {
 
         // Verify
         assert(bi == 2000002);
+        std::cout << "bi(1000001) timesDigit(2)  == 2000002" << std::endl;
     }
 
     std::cout << "Done testing bigint '*' digit" << std::endl;
+    std::cout << std::endl;
     return 0;
 }

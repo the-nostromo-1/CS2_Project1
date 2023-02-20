@@ -74,6 +74,7 @@ int main () {
     }
 
     std::cout << "Done testing subscript." << std::endl;
+    std::cout << std::endl;
     return 0;
 }
 

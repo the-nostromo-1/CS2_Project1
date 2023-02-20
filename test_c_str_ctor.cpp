@@ -10,7 +10,6 @@
 //===========================================================================
 int main()
 {
-
     {
         //------------------------------------------------------
         // Test: Construct with 0
@@ -70,15 +69,15 @@ int main()
 
         // Verify
         assert(bi == "6234567890");
-        // std::cout << "6234567890 == ";
-        // std::cout << bi;
-        // std::cout << std::endl;
+        std::cout << "6234567890 == ";
+        std::cout << bi;
+        std::cout << std::endl;
 
         bi = bigint("62345"); // Check re-assignment.
         assert(bi == "62345");
-        // std::cout << "62345 == ";
-        // std::cout << bi;
-        // std::cout << std::endl;
+        std::cout << "62345 == ";
+        std::cout << bi;
+        std::cout << std::endl;
     }
 
     {
@@ -93,11 +92,11 @@ int main()
         // Verify
         assert(bi == "12345678901234567890123456789012345678901234567890123456789012345678901234567890");
 
-        // std::cout << "1234567890123456789012345678901234567890123456789012345678901234567890" << std::endl;
-        // std::cout << "1234567890" << std::endl;
-        // std::cout << "==" << std::endl;
-        // std::cout << bi;
-        // std::cout << std::endl;
+        std::cout << "1234567890123456789012345678901234567890123456789012345678901234567890" << std::endl;
+        std::cout << "1234567890" << std::endl;
+        std::cout << "==" << std::endl;
+        std::cout << bi;
+        std::cout << std::endl;
     }
 
     {
@@ -127,7 +126,7 @@ int main()
         assert(h == 77777777);
         assert(i == 888888888);
     }
-
     std::cout << "Done testing constructor bigint(const char[])." << std::endl;
+    std::cout << std::endl;
     return 0;
 }

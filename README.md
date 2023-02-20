@@ -18,7 +18,7 @@ Take the example of the number 299,793. We show how it is stored in the array be
 Requirements:
 
 You can NOT use any STL data structures (such as std::vector or std::string) or any other predifined data structures to solve this problem. Use a      c-array to solve the problem. You do not need <math> to solve any part of this problem.
-In your svn folder, name the folder for this project bigint.                                              
+In your svn folder, name the folder for this project bigint.
 There is a makefile and test cases provided for you in the svn/shared/project1/ folder in svn.
 Your program must compile and run on the department's system (wasp or honet) using the provided Makefile.
 You must use the class construct to implement your ADT.
@@ -64,18 +64,18 @@ Milestone 2 - 30 pts
 
 Milestone 3 - 40 pts
         Implementation:
-            A method bigint timesDigit(int) const; to multiply a bigint and a single digit integer between 0 and 9 Note that this is different than bigint * int because there the int will be converted into a bigint automatically by the constructor so will end up being bigint * bigint.
-            A method bigint times10(int) const; to multiply a bigint by 10n with n>=0. (a.k.a. shift left base 10). For example, given x == 234, x.times10(2) == 23400, that is 234 * 102. This can be implemented simply by shifting the bigint n digits to the left.
+            A method bigint timesDigit(int) const; to multiply a bigint and a single digit integer between 0 and 9 Note that this is different than bigint *int because there the int will be converted into a bigint automatically by the constructor so will end up being bigint* bigint.
+            A method bigint times10(int) const; to multiply a bigint by 10n with n>=0. (a.k.a. shift left base 10). For example, given x == 234, x.times10(2) == 23400, that is 234 *102. This can be implemented simply by shifting the bigint n digits to the left.
             Overload operator* to multiply two bigints. Implement this multiply using the shift left and times single digit methods above. The algorithm to multiply two bigints is as follows:
-                //To compute A * B
+                //To compute A *B
                 //B[0] is 1's place, B[1] is 10's place, B[2] is 100's place, etc.
                 product = 0;
                 for i = 0 to maxDigits-1 do
-                    //product = product + ( (A * B[i]) * 10i )
+//product = product + ( (A* B[i]) * 10i )
                     temp = A.timesDigit(B[i]);
                     product = product + temp.times10(i);
                 end for
-           
+
 Testing:
             Build unit tests for the times10 and timesDigit methods.
             Test with different values and ranges.
@@ -107,7 +107,7 @@ Other Requirements:
     Include all source code files in svn.
     See the grading policy for other requirements.
 
-** Assigned by Dr. Jonathan Maletic for CS 23001 class **
+**Assigned by Dr. Jonathan Maletic for CS 23001 class**
 
-URL: http://www.cs.kent.edu/~jmaletic/CS23001/projects/proj1.html
-Last update: Tue Jan 24 13:57:56 2023 EST 
+URL: <http://www.cs.kent.edu/~jmaletic/CS23001/projects/proj1.html>
+Last update: Tue Jan 24 13:57:56 2023 EST

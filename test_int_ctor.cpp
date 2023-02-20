@@ -21,9 +21,9 @@ int main () {
 
         // Verify
         assert(bi == 0);
-        // std::cout << "0 == ";
-        // std::cout << bi;
-        // std::cout << std::endl;
+        std::cout << "0 == ";
+        std::cout << bi;
+        std::cout << std::endl;
         
     }
 
@@ -37,9 +37,9 @@ int main () {
 
         // Verify
         assert(bi == 1);
-        // std::cout << "1 == ";
-        // std::cout << bi;
-        // std::cout << std::endl;
+        std::cout << "1 == ";
+        std::cout << bi;
+        std::cout << std::endl;
         
     }
 
@@ -53,9 +53,9 @@ int main () {
 
         // Verify
         assert(bi == 100000);
-        // std::cout << "100000 == ";
-        // std::cout << bi;
-        // std::cout << std::endl;
+        std::cout << "100000 == ";
+        std::cout << bi;
+        std::cout << std::endl;
         
     }
 
@@ -70,16 +70,16 @@ int main () {
 
         // Verify
         assert(bi == 27);
-        // std::cout << "27 ==  ";
-        // std::cout << bi;
-        // std::cout << std::endl;
+        std::cout << "27 ==  ";
+        std::cout << bi;
+        std::cout << std::endl;
 
         // Verify
         bi = bigint(5006);   //Check re-assignment.
         assert(bi == 5006);
-        // std::cout << "5006 ==  ";
-        // std::cout << bi;
-        // std::cout << std::endl;
+        std::cout << "5006 ==  ";
+        std::cout << bi;
+        std::cout << std::endl;
 
     }
 
@@ -93,10 +93,11 @@ int main () {
 
         // Verify
         assert(bi == 456789);
-        // std::cout << "456789 == " << bi << std::endl;
+        std::cout << "456789 == " << bi << std::endl;
     }
     
     std::cout << "Done testing constructor bigint(int)." << std::endl;
+    std::cout << std::endl;
 
     return 0;
 }

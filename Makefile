@@ -20,7 +20,6 @@ OPTS = -g -Werror -W -Wunused -Wuninitialized -Wshadow -std=c++17
 # For milestone 3 add: test_times_10 test_times_digit test_multiply
 TESTS  = test_default_ctor test_int_ctor test_equal test_c_str_ctor test_add test_subscript test_times_10 test_times_digit test_multiply
 
-
 ###############################################################
 # The first rule is run if only make is typed
 msg:

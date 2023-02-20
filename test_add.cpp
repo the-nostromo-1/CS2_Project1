@@ -58,6 +58,7 @@ int main()
     assert(left == 1);
     assert(right == 1);
     assert(result == 2);
+    std::cout << "left(1) + right(1) == result(2)" << std::endl;
     }
 
     {
@@ -74,6 +75,7 @@ int main()
     assert(left == 9);
     assert(right == 5);
     assert(result == 14);
+    std::cout << "left(9) + right(5) == result(14)" << std::endl;
     }
 
     {
@@ -89,6 +91,7 @@ int main()
     assert(left == 200);
     assert(right == 500);
     assert(result == 700);
+    std::cout << "left(200) + right(500) == result(700)" << std::endl;
     }
 
     {
@@ -104,8 +107,10 @@ int main()
     assert(left == "2000");
     assert(right == "5000");
     assert(result == 7000);
+    std::cout << "left(2000) + right(5000) == result(7000)" << std::endl;
     }
 
     std::cout << "Done with testing addition." << std::endl;
+    std::cout << std::endl;
     return 0;
 }

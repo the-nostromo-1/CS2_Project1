@@ -15,9 +15,10 @@ int main () {
     bigint bi;
 
     // Verify
-    // std::cout << "0 == " << bi << std::endl;
+    std::cout << "0 == " << bi << std::endl;
     assert(bi == 0);
     std::cout << "Done testing default constructor." << std::endl;
+    std::cout << std::endl;
     return 0;
 }
 
