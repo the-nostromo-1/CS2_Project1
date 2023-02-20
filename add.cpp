@@ -16,10 +16,8 @@ int main() {
         exit(1);
     }
 
-    while (!in.eof()) {
-        bigint bi1 ,bi2, biResult;
-        in >> bi1;
-        in >> bi2;
+    bigint bi1 ,bi2, biResult;
+    while (in >> bi1 >> bi2) {
         std::cout << "Bigint 1 is:" << std::endl;
         std::cout << bi1 << std::endl;
         std::cout << "Bigint 2 is:" << std::endl;

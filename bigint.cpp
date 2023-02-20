@@ -104,6 +104,8 @@ std::ostream &operator<<(std::ostream &out, const bigint &rhs) {
 }
 
 std::istream &operator>>(std::istream &in, bigint &rhs) {
+    rhs = bigint();
+
     char number = '.';
     char numberArray[CAPACITY];
     int i = 0;
