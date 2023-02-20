@@ -57,7 +57,7 @@ bigint bigint::timesDigit(int x) const {
 }
 
 bigint bigint::times10(int x) const {
-    bigint result;
+    bigint result(0);
     for (int i = CAPACITY - x - 1; i >= 0; --i) {
         result.big_int_array[i + x] = big_int_array[i];
     }
@@ -138,11 +138,9 @@ bigint bigint::operator+(const bigint &rhs) const {
 bigint bigint::operator*(const bigint &rhs) const {
     bigint temp;
     bigint product;
-
     for (int i = 0; i < CAPACITY - 1; ++i) {
         temp = this->timesDigit(rhs.big_int_array[i]);
         product = product + temp.times10(i);
-
     }
     return product;
 }
